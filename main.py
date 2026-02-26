@@ -3,12 +3,12 @@
 class Atm:
 
     def __init__(self):
-        self.pin = ""
-        self.balance = 0
+        self.__pin = ""
+        self.__balance = 0
 
-        self.instruction()
+        self.__instruction()
 
-    def instruction(self):
+    def __instruction(self):
         user_input = int(input("""
                 Hello, How would you like to proceed?
                     1. Enter 1 to Create PIN.
@@ -33,18 +33,18 @@ class Atm:
             print("Have a Good Day!")
 
     def create_pin(self):
-        self.pin = input("Create your 4 digit PIN: ")
+        self.__pin = input("Create your 4 digit PIN: ")
         print("PIN generate successfully. ")
         enterbutton = input("Press enter to menu ->")
         if enterbutton == "":
-            self.instruction()
+            self.__instruction()
 
     def deposit(self):
-        if self.pin != "":
+        if self.__pin != "":
             pin = input("Enter your PIN : ")
-            if pin == self.pin:
+            if pin == self.__pin:
                 amount = int(input("Enter deposit amount : "))
-                self.balance = self.balance + amount
+                self.__balance = self.__balance + amount
                 print("Deposit Successfully")
             else:
                 print("Incorrect PIN.")
@@ -55,15 +55,15 @@ class Atm:
         enterbutton = input("Press enter to menu ->")
         if enterbutton == "":
 
-            self.instruction()
+            self.__instruction()
 
     def withdraw(self):
-        if self.pin != "":
+        if self.__pin != "":
             pin = input("Enter your PIN : ")
-            if pin == self.pin:
+            if pin == self.__pin:
                 amount = int(input("Enter withdrawal amount : "))
-                if amount <= self.balance:
-                    self.balance = self.balance - amount
+                if amount <= self.__balance:
+                    self.__balance = self.__balance - amount
                     print("Withdrawal Succesfully")
                 else:
                     print("Insufficient Balance.")
@@ -76,13 +76,13 @@ class Atm:
         enterbutton = input("Press enter to menu ->")
         if enterbutton == "":
 
-            self.instruction()
+            self.__instruction()
 
     def check_balance(self):
-        if self.pin != "":
+        if self.__pin != "":
             pin = input("Enter your PIN : ")
-            if pin == self.pin:
-                print(f"Your current balance is Rs. {self.balance}.")
+            if pin == self.__pin:
+                print(f"Your current balance is Rs. {self.__balance}.")
             else:
                 print("Incorrect PIN. Try Again.")
         else:
@@ -91,15 +91,20 @@ class Atm:
         enterbutton = input("Press enter to menu ->")
         if enterbutton == "":
 
-            self.instruction()
+            self.__instruction()
 
     def reset_pin(self):
-        if self.pin != "":
-            self.pin = input("Enter your new 4 digit reset PIN : ")
+        if self.__pin != "":
+            self.__pin = input("Enter your new 4 digit reset PIN : ")
             print("PIN Reset successful.")
         else:
             print("Create your PIN First.")
             self.create_pin()
+        enterbutton = input("Press enter to menu ->")
+        if enterbutton == "":
+
+            self.__instruction()
 
 
 icici = Atm()
+
