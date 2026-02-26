@@ -2,7 +2,7 @@
 ATM is a python program to perform simple atm task.It operates on the pin, balance.  
 It uses the class, method, constructor,etc.
 
-For more code break down:
+FOR MORE CODE BREAKDOWN:
 
 1 -> I set Atm as a class. 
 
